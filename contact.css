@@ -1,0 +1,63 @@
+.contact-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.contact-title {
+    white-space: nowrap;
+}
+
+.contact__social img {
+    width: 80px;
+    height: 80px;
+    max-height: 100%;
+}
+
+.contact__social a {
+    padding: 8px 10px;
+    background-color: #000;
+    height: fit-content;
+    border: none;
+    border-right: 3px inset #fff;
+    border-bottom: 3px inset #fff;
+    box-shadow: 0 0 10px #fff
+}
+
+.contact__social {
+    background-image: url('../images/contact/flower-left.svg'), url('../images/contact/flower-right.svg');
+    background-position: left, right;
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+}
+
+@media (max-width: 1200px) {
+    .contact-title {
+        font-size: 72px;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact__social-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact__social {
+        background-position: left top, right bottom;
+        background-size: 40%, 30%;
+    }
+
+    .contact-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-title {
+        font-size: 34px;
+    }
+
+    .contact__social {
+        background-size: 50%, 40%;
+    }
+}

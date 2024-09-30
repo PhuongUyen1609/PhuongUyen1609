@@ -1,0 +1,133 @@
+.my-work_container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.my-work h1 {
+    display: inline-flex;
+    padding: 0 20px;
+}
+
+.my-work__slider {
+    width: 60%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-work__slider-item {
+    height: 500px;
+    overflow: hidden;
+    display: none
+}
+
+.my-work__slider-item img {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.my-work__slider-prev,
+.my-work__slider-next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    color: white;
+    font-weight: bold;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.my-work__slider-prev {
+    left: -50px;
+}
+
+.my-work__slider-next {
+    right: -50px;
+    border-radius: 3px 0 0 3px;
+}
+
+.my-work__slider-prev:hover,
+.my-work__slider-next:hover {
+    color: #00FF1A;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.my-work_container img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+
+/* .my-work_container .bg-gradiant {
+    background: linear-gradient(to bottom,
+            #101010,
+            #A1100F,
+            #981799,
+            #A1100F,
+            #101010);
+} */
+
+.my-work_container .section {
+    margin-bottom: 100px;
+}
+
+.border_shadow-20px {
+    border-bottom: 20px solid #000;
+}
+
+@media (max-width: 992px) {
+    .my-work_container .section>div.row {
+        flex-direction: column;
+    }
+
+    .my-work_container .section>div.row.flex-column-reserse {
+        flex-direction: column-reverse;
+    }
+
+    .my-work__pharma .col-6 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .my-work__slider-item {
+        height: 300px;
+    }
+
+    .my-work_container .section {
+        margin-bottom: 80px;
+    }
+
+    .my-work_instagram {
+        color: #00FF1A;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .my-work_text-mobile{
+        white-space: nowrap;
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .my-work_container .section {
+        margin-bottom: 60px;
+    }
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uyên Phương - Contact me</title>
+    <link rel="stylesheet" href="./assets/css/root.min.css" />
+    <link rel="stylesheet" href="./assets/css/home.css" />
+    <link rel="stylesheet" href="./assets/css/contact.css" />
+  </head>
+
+  <body>
+    <div class="d-flex flex-column overflow-hidden contact-container">
+      <header
+        class="container home-header d-flex align-items-center justify-content-between p-5 px-10"
+      >
+        <a href="./index.html" class="home-header__avatar">
+          <img src="./assets/images/home/avatar.svg" alt="Avatar" />
+        </a>
+        <a href="./index.html" class="img__circle d-none">
+          <img src="./assets/images/home/bum.svg" alt="Circle" />
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <div class="nav d-flex gap-4 align-items-center flex-nowrap">
+          <a class="nav_item nav_item_home text-white" href="./index.html">🏠Home page🏠</a>
+          <a class="nav_item text-white" href="./about.html">💅About me💅</a>
+          <a class="nav_item text-white" href="./my-work.html">💻My work💻</a>
+          <a class="nav_item text-white text-truncate" href="./contact.html"
+            >📲Contact me📲</a
+          >
+        </div>
+      </header>
+
+      <div class="flex-1 d-flex flex-column">
+        <h1 class="font-alagard fs-96px text-primary fw-500 text-center contact-title text-truncate">
+          ☎️.CONTACT ME AT.☎️
+        </h1>
+        <div
+          class="contact__social w-100 d-flex align-items-center justify-content-center py-5 flex-1 overflow-hidden"
+        >
+          <div class="d-flex flex-column gap-4">
+            <div class="contact__social-item d-flex gap-4">
+              <img src="./assets/images/contact/instagram.svg" alt="" />
+              <p class="d-flex align-items-center">
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/uyenph_khongaibiet/"
+                  class="fs-20px font-rainyhearts text-primary"
+                  >https://www.instagram.com/uyenph_khongaibiet/</a
+                >
+              </p>
+            </div>
+            <div class="contact__social-item d-flex gap-4">
+              <img src="./assets/images/contact/instagram.svg" alt="" />
+              <p class="d-flex align-items-center">
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/uyenn__phuongg/"
+                  class="fs-20px font-rainyhearts text-primary"
+                  >https://www.instagram.com/uyenn__phuongg/</a
+                >
+              </p>
+            </div>
+            <div class="contact__social-item d-flex gap-4">
+              <img src="./assets/images/contact/gmail.svg" alt="" />
+              <p class="d-flex align-items-center">
+                <a
+                  href="mailto:nhu33414@gmail.com"
+                  class="fs-20px font-rainyhearts text-primary"
+                  >nhu33414@gmail.com</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex py-5"></div>
+      <div class="d-flex py-2 bg-primary"></div>
+      <p class="text-primary p-2 font-rainyhearts container px-10">
+        .2024 UYEN PHUONG
+      </p>
+  
+      <video class="bg-video" autoplay muted loop>
+        <source src="./assets/images/home/bg.mp4" type="video/mp4" />
+        Trình duyệt của bạn không hỗ trợ video.
+      </video>
+    </div>
+  </body>
+  <script src="./assets/js/main.js"></script>
+  <script>
+    const itemsArray = [];
+    const nail = document.querySelector(".nail");
+
+    document.addEventListener("mousemove", (e) => {
+      gsap.to(nail, {
+        x: e.clientX - nail.offsetWidth / 2,
+        y: e.clientY - nail.offsetHeight / 2,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    });
+
+    document.addEventListener("click", function (event) {
+      const imgNumber = Math.floor(Math.random() * 7) + 1; // Random image number between 1 and 7
+      let container = document.createElement("div");
+      let elementWidth = 700;
+
+      // Creating an img element
+      container.innerHTML = `<div class="img-container">
+                                <img src="./assets/images/home/Nail1${imgNumber}.png" alt="" />
+                             </div>`;
+
+      const appendedElement = container.firstChild;
+      document.querySelector(".items-container").appendChild(appendedElement);
+
+      appendedElement.style.left = `${event.clientX - elementWidth / 2}px`;
+      appendedElement.style.top = `${event.clientY}px`;
+      const randomRotation = Math.random() * 10 - 5;
+
+      gsap.set(appendedElement, {
+        scale: 0,
+        rotation: randomRotation,
+        transformOrigin: "center",
+      });
+
+      const tl = gsap.timeline();
+
+      const randomScale = Math.random() * 0.5 + 0.5;
+      tl.to(appendedElement, {
+        scale: randomScale,
+        duration: 0.5,
+        delay: 0.1,
+      });
+
+      tl.to(
+        appendedElement,
+        {
+          y: () => `-=500`,
+          opacity: 1,
+          duration: 4,
+          ease: "none",
+        },
+        "<"
+      ).to(
+        appendedElement,
+        {
+          opacity: 0,
+          duration: 1,
+          onComplete: () => {
+            appendedElement.parentNode.removeChild(appendedElement);
+            const index = itemsArray.indexOf(appendedElement);
+            if (index > -1) {
+              itemsArray.splice(index, 1);
+            }
+          },
+        },
+        "-=0.5"
+      );
+    });
+  </script>
+  <script>
+  document.addEventListener("click", function (event) {
+    const imgNumber = Math.floor(Math.random() * 7) + 1;
+    const imagePath = `./assets/images/home/Nail${imgNumber}.png`;
+    console.log("Generated Image Path:", imagePath); // Log the generated path
+  
+    // ... rest of your code ...
+  });
+</script>
+</html>
+</html>
